@@ -1,0 +1,4 @@
+CREATE_TABLE = "CREATE TABLE IF NOT EXISTS person(id SERIAL PRIMARY KEY, firstName TEXT NOT NULL, lastName TEXT NOT NULL, email TEXT NOT NULL, password TEXT NOT NULL);"
+INSERT_PERSON = "INSERT INTO person(firstName,lastName,email,password) VALUES(%s,%s,%s,%s) RETURNING id;"
+SELECT_ALL_PEOPLE = "SELECT * FROM person;"
+SELECT_PERSON_BY_ID = "SELECT * FROM person WHERE id=%s;"
