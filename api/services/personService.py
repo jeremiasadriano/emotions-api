@@ -8,8 +8,9 @@ def createAccount(firstName,lastName,email,password):
             with CONNECTION.cursor() as query:
                 query.execute(CREATE_TABLE)
                 query.execute(INSERT_PERSON,(firstName,lastName,email,password,))
-                return query.fetchone()[0]
-            
+                personId = query.fetchone()[0]
+                query.close()
+                return personId
     except UniqueViolation:
         raise Exception("User already exist!")
     except NotNullViolation:
@@ -20,6 +21,7 @@ def loginUser(email,password):
         with CONNECTION.cursor() as query:
             query.execute(SELECT_PERSON_BY_EMAIL_AND_PASS,(email, password,))
             personId = query.fetchone()
+            query.close()
             if personId:
                 return personId[0]
             else:
@@ -31,6 +33,7 @@ def updateUser(firstName,lastName,email,password,id):
             with CONNECTION.cursor() as query:
                 query.execute(UPDATE_USER,(firstName,lastName,email,password,id,))
                 personId = query.fetchone()
+                query.close()
                 if personId:
                     return personId[0]
                 else:
@@ -44,3 +47,4 @@ def deleteUser(id):
     with CONNECTION:
         with CONNECTION.cursor() as query:
             query.execute(DELETE_USER_BY_ID,(id,))
+            query.close()
