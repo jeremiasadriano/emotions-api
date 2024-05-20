@@ -3,3 +3,5 @@ INSERT_PERSON = "INSERT INTO person(firstName,lastName,email,password) VALUES(%s
 SELECT_ALL_PEOPLE = "SELECT * FROM person;"
 SELECT_PERSON_BY_ID = "SELECT * FROM person WHERE id=%s;"
 SELECT_PERSON_BY_EMAIL_AND_PASS="SELECT * FROM person WHERE email=%s AND password=%s;"
+UPDATE_USER="UPDATE person SET firstName=%s,lastName=%s,email=%s,password=%s WHERE id=%s RETURNING id"
+DELETE_USER_BY_ID="DELETE FROM person WHERE id=%s;"
