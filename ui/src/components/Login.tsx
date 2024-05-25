@@ -1,7 +1,7 @@
 import { useState } from "react"
-import '../../assets/css/style.css'
-import '../../assets/fonts/material-icon/css/material-design-iconic-font.css'
-import SigninImage from '../../assets/images/signin-image.jpg'
+import '../assets/css/style.css'
+import '../assets/fonts/material-icon/css/material-design-iconic-font.css'
+import SigninImage from '../assets/images/signin-image.jpg'
 import { Link } from "react-router-dom";
 export default function Login() {
     const [messageError, setMessageError] = useState("");

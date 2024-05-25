@@ -1,7 +1,7 @@
 import { useState } from "react";
-import '../../assets/css/style.css'
-import '../../assets/fonts/material-icon/css/material-design-iconic-font.css'
-import SignUpImage from '../../assets/images/signup-image.jpg'
+import '../assets/css/style.css'
+import '../assets/fonts/material-icon/css/material-design-iconic-font.css'
+import SignUpImage from '../assets/images/signup-image.jpg'
 import { Link } from "react-router-dom";
 
 export default function SignUp() {
