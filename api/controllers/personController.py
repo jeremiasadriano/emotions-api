@@ -28,13 +28,11 @@ def login():
     except Exception  as e:
         return jsonify({'status':404, 'message': str(e)}),404
     
-@person_blueprint.post("/username")
-def username():
+@person_blueprint.get("/username/<int:id>")
+def username(id):
     try:
-        personData = request.get_json()
-        id = personData['id']
-        personId = userName(id)
-        return jsonify({'id': personId}), 200
+        personName = userName(escape(id))
+        return jsonify({'username': personName}), 200
     except Exception  as e:
         return jsonify({'status':404, 'message': str(e)}),404
 
