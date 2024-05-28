@@ -20,10 +20,23 @@ body {
 }
 
 .dash {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     color: white;
     background-color: rgba(0, 0, 0, 0.822);
     width: 20%;
     height: 100vh;
+}
+
+.dash-btn button {
+    color: white;
+    cursor: pointer;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: transparent;
 }
 
 .chat-label {
