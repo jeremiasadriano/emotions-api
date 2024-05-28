@@ -1,10 +1,10 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Chat from './pages/Chat'
+import LoginForm from './pages/Login'
 const router = createBrowserRouter([
   {
-    element: <Login />,
+    element: <LoginForm />,
     path: '/login',
     errorElement: 'Error loading component'
   },

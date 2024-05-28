@@ -1,4 +1,7 @@
 export default function MessageDisplay() {
+    async function message() {
+        
+    }
     return (
         <>
             <div>

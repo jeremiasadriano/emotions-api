@@ -27,6 +27,18 @@ def loginUser(email,password):
             else:
                 raise Exception("User Not Found!")
             
+            
+def userName(id):
+    with CONNECTION:
+        with CONNECTION.cursor() as query:
+            query.execute(SELECT_PERSON_BY_ID,(id,))
+            personId = query.fetchone()
+            query.close()
+            if personId:
+                return personId[1]
+            else:
+                raise Exception("User Not Found!")
+            
 def updateUser(firstName,lastName,email,password,id):
     try:
         with CONNECTION:

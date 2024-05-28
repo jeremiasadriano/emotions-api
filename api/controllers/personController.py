@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from services.personService import createAccount, loginUser,updateUser, deleteUser
+from services.personService import createAccount, loginUser,updateUser, deleteUser,userName
 from markupsafe import escape
 
 person_blueprint = Blueprint('person',__name__)
@@ -24,6 +24,16 @@ def login():
         email = personData['email']
         password = personData['password']
         personId = loginUser(email,password)
+        return jsonify({'id': personId}), 200
+    except Exception  as e:
+        return jsonify({'status':404, 'message': str(e)}),404
+    
+@person_blueprint.post("/username")
+def username():
+    try:
+        personData = request.get_json()
+        id = personData['id']
+        personId = userName(id)
         return jsonify({'id': personId}), 200
     except Exception  as e:
         return jsonify({'status':404, 'message': str(e)}),404
